@@ -4,7 +4,11 @@ The paper, <a href="https://ieeexplore.ieee.org/abstract/document/8954066">A. Kr
 
 The original paper mentioned that implementing a "blind-spot" kernel is not trivial, so instead the authors used a so called masking scheme (details can be found in the paper). However, to the best of my knowledge, this kernel can be implemented using a kernel constraint that sets the center weight to be 0.
 
-Here is an example result:
+An example usage in the `Conv2D` layer in Keras:
+
+  `x = Conv2D(nf, 3, activation='relu', padding='same', kernel_constraint=blind_spot(filt_sz=3))(x)`
+
+Here is an example result obtained using a residual-ConvNet-based blind spot network:
 
 <img src="https://github.com/junyuchen245/Noise2Void_Weights_Constraint_Keras/blob/master/sample_result.png" width="600"/>
 
